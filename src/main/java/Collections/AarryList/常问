@@ -1,0 +1,19 @@
+arraylist是 基于数组的数据结构类型，
+默认容量为10 （private static final int DEFAULT_CAPACITY = 10;）
+
+
+（自动扩容机制）扩容问题：
+    默认=10 , 如果超过该容量，则自动扩容到1.5倍，新建容量，将原来数组copy到新数组内，并把该新的数组作为新的容器来使用。
+解决方法：预设容器大小值，调用ensureCapacity方法来手动增加ArrayList实例的容量
+
+扩容原理：
+       （Arrays.copyOf）浅拷贝：只复制一个对象,但新对象和老对象同是一个地址值,
+                        深拷贝：复制一个对象,新老对象的地址值也变了
+
+性能方面：
+    查询速度快，因为是基于Index查询的，写的时候比较慢
+
+安全方面：
+    并发的时候迭代器可能会失效，报异常concurrentModificationException(并发修改一次)，适合于单线程，
+    诺想在多线程下用arraylist则可以借助 Collection.synchronizedList(List l)函数返回一个线程安全的ArrayList类,
+    或者使用concurrent并发包下的CopyOnWriteArrayList类，等两种方式。
