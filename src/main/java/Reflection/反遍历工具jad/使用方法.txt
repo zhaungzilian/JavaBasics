@@ -1,0 +1,1 @@
+复制到要反遍里的.class目录下后，  进入shell后 输入   jad -sjava  目标类.class
