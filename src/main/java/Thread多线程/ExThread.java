@@ -21,6 +21,9 @@ import java.net.URL;
  *
  *
  **/
+
+
+//1. 利用FileUtils 获取网页下载连接。 多线程下载图片
 public class ExThread extends Thread{
 
     String url;
@@ -55,6 +58,7 @@ public class ExThread extends Thread{
 class WebLoder{
     public void loding(String url, String fname){
         try {
+
             FileUtils.copyURLToFile(new URL(url), new File(fname));
         } catch (IOException e) {
             e.printStackTrace();
